@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xmile version="1.0" xmlns="http://docs.oasis-open.org/xmile/ns/XMILE/v1.0" xmlns:isee="http://iseesystems.com/XMILE">
+	<header>
+		<smile version="1.0" namespace="std, isee"/>
+		<name/>
+		<uuid>d20a4683-13fd-46bf-967f-9d9500762bdc</uuid>
+		<vendor>isee systems, inc.</vendor>
+		<product version="4.1.2(Online)" isee:build_number="3810" isee:saved_by_v1="true" lang="en">Stella Web Editor</product>
+	</header>
+	<ai_information>
+		<status verified="true" trusted="true" tampered="false" uses="false" analyzed="false" log_truncated="false" timestamp="1767042216" algorithm="ed25519" keyurl="https://iseesystems.com/keys/stella01.txt" want_var_info="true" want_var_status="false" want_log="false" sampling="1" signature="7W2JznVPCT6mPwj93NBUIL4NeO8288Aa0bzWkEaN+XOQxvpR1NC/DoOr0FeBg0Vl3yiC/ZhTNiCFiMfZKcmnAw=="/>
+		<settings>
+			<isee:setting key="quantitative/backgroundKnowledge" value=""/>
+			<isee:setting key="quantitative/problemStatement" value=""/>
+		</settings>
+	</ai_information>
+	<sim_specs isee:sim_duration="1.5" isee:run_prefix="Run" isee:simulation_delay="0.125" isee:restore_on_start="false" method="Euler" time_units="Months" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="true" isee:loop_scores="true" isee:loop_exhaustive_allowed="1000">
+		<start>0</start>
+		<stop>12</stop>
+		<dt reciprocal="true">4</dt>
+	</sim_specs>
+	<isee:prefs saved_runs="5" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
+		<isee:tag_styles>
+			<isee:tag_style tag="Interface"/>
+			<isee:tag_style tag="Output"/>
+			<isee:tag_style tag="Parameter"/>
+			<isee:tag_style tag="Policy"/>
+		</isee:tag_styles>
+	</isee:prefs>
+	<isee:multiplayer_settings include_chat="true" allow_observers="false" advance_time_increment="1" max_advance_time_in_ms="0" model_stops_when_players_drop="false" observer_start_page="home_page" enabled="false"/>
+	<isee:time_formats default_format="Builtin">
+		<isee:time_format name="Builtin" type="adaptive"/>
+	</isee:time_formats>
+	<isee:number_format_extenders/>
+	<default_format/>
+	<isee:data_manager>102005;Deep_Reading_Capability,0;Effortful_Reading_Practice,1;Skill_Atrophy,2;AI_Assisted_Reading_Usage,3;Reflection_Effort,4;:1,Run 1,0,12,0.25,0.25,0,1,1,1,0,Months,0,2025-Dec-30 02:33:27,0,0,3,-1,49,20,;1,-1,49,21,;2,-1,49,1.4,1.498,1.59551,1.69253245,1.78906978775,1.88512443881125,1.98069881661719,2.07579532253411,2.17041634592144,2.26456426419183,2.35824144287087,2.45145023565652,2.54419298447823,2.63647201955584,2.72828965945806,2.81964821116077,2.91054997010497,3.00099722025444,3.09099223415317,3.18053727298241,3.26963458661749,3.35828641368441,3.44649498161598,3.5342625067079,3.62159119417437,3.70848323820349,3.79494082201248,3.88096611790241,3.9665612873129,4.05172848087634,4.13646983847196,4.2207874892796,4.3046835518332,4.38816013407403,4.47121933340366,4.55386323673664,4.63609392055296,4.7179134509502,4.79932388369544,4.88032726427697,4.96092562795558,5.0411209998158,5.12091539481673,5.20031081784264,5.27930926375343,5.35791271743466,5.43612315384749,5.51394253807825,5.59137282538786,;0,-1,49,70,74.9,79.7755,84.6266225,89.4534893875,94.2562219405625,99.0349408308597,103.789766126705,108.520817296072,113.228213209592,117.912072143544,122.572511782826,127.209649223912,131.823600977792,136.414482972903,140.982410558039,145.527498505248,150.049861012722,154.549611707659,159.02686364912,163.481729330875,167.91432068422,172.324749080799,176.713125335395,181.079559708718,185.424161910175,189.747041100624,194.048305895121,198.328064365645,202.586424043817,206.823491923598,211.03937446398,215.23417759166,219.408006703702,223.560966670183,227.693161836832,231.804696027648,235.89567254751,239.966194184772,244.016363213848,248.046281397779,252.05604999079,256.045769740836,260.015540892132,263.965463187671,267.895635871733,271.806157692374,275.697126903913,279.568641269393,;4,-1,49,10,;:</isee:data_manager>
+	<model_units>
+		<unit name="Months">
+			<eqn/>
+			<alias>mo</alias>
+			<alias>month</alias>
+		</unit>
+	</model_units>
+	<model>
+		<variables>
+			<stock name="Deep Reading Capability">
+				<eqn>70</eqn>
+				<inflow>Effortful_Reading_Practice</inflow>
+				<outflow>Skill_Atrophy</outflow>
+				<units>capability_units</units>
+			</stock>
+			<flow name="Effortful Reading Practice">
+				<eqn>1 + 2*Reflection_Effort</eqn>
+				<non_negative/>
+				<units>capability_units/Months</units>
+			</flow>
+			<flow name="Skill Atrophy">
+				<eqn>0.02 *Deep_Reading_Capability</eqn>
+				<non_negative/>
+				<units>capability_units/Months</units>
+			</flow>
+			<stock name="AI Assisted Reading Usage">
+				<eqn>20</eqn>
+				<units>usage_index</units>
+			</stock>
+			<aux name="Reflection Effort">
+				<eqn>
+0.5 * AI_Assisted_Reading_Usage</eqn>
+				<units>usage_index</units>
+			</aux>
+		</variables>
+		<views>
+			<style color="#000000" background="#FFFFFF" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="#000000" font_family="Arial" font_size="10pt" padding="2" border_color="#000000" border_width="thin" border_style="none">
+				<text_box color="#000000" background="#FFFFFF" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<isee:loop_indicator color="#000000" background="#FFFFFF" vertical_text_align="top" font_size="12pt"/>
+				<numeric_display color="#FFFFFF" background="#FFFFFF" font_size="12pt" border_width="thin" border_style="solid" isee:transparent="false" isee:show_divider="true" isee:show_bounding_box="true" label_side="left"/>
+				<graph color="#000000" background="#FFFFFF" font_size="12pt" axis_color="#666666" grid_color="#C8C8C8" isee:graph_area_color="#FFFFFF" legend_position="bottom" isee:transparent="false" isee:hide_border="false" axis_title_font_style="normal" axis_title_font_weight="normal" axis_title_text_decoration="none" axis_title_text_align="center" axis_title_vertical_text_align="center" axis_title_font_color="#000000" axis_title_font_family="Arial" axis_title_font_size="12pt" axis_title_text_padding="2" axis_title_text_border_color="#000000" axis_title_text_border_width="thin" axis_title_text_border_style="none" axis_label_font_style="normal" axis_label_font_weight="normal" axis_label_text_decoration="none" axis_label_text_align="center" axis_label_vertical_text_align="center" axis_label_font_color="#000000" axis_label_font_family="Arial" axis_label_font_size="9pt" axis_label_text_padding="2" axis_label_text_border_color="#000000" axis_label_text_border_width="thin" axis_label_text_border_style="none">
+					<isee:series_styles>
+						<isee:series_style color="#0000FF" thickness="1"/>
+						<isee:series_style color="#FF0000" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="#FF00FF" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="#008F44" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#FF7F00" thickness="1"/>
+						<isee:series_style color="#7F00FF" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="#0CA0FF" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="#00FF00" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#FF007F" thickness="1"/>
+						<isee:series_style color="#00FFFF" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="#F586FF" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="#000000" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#C8C8C8" thickness="1"/>
+					</isee:series_styles>
+				</graph>
+				<table color="#000000" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="#000000" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="#000000" header_text_border_width="thin" header_text_border_style="none"/>
+				<button color="#000000" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
+				<isee:annotation color="#000000" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
+				<slider color="#0075FF" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<isee:stacked_container color="#000000" background="#FFFFFF" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="#000000" selected_item_background="#FFFFFF" item_background="#DDDDDD" transparent_bg="false"/>
+				<isee:dual_slider color="#66CC66" background="#C0C0C0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<isee:sim_speed_slider color="#000000" background="#FFFFFF"/>
+				<isee:time_slider color="#E95F74" background="#C0C0C0"/>
+				<isee:pie_input color="#000000" background="#FFFFFF" font_size="12pt" legend_position="bottom" isee:transparent="false"/>
+				<knob color="#66CC66" background="#E0E0E0" font_size="12pt" label_side="bottom" wrap_title="true"/>
+				<numeric_input color="#000000" background="#E0E0E0" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
+				<isee:dropdown_input color="#000000" background="#E0E0E0" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
+				<switch color="#000000" background="#E0E0E0" font_size="12pt" label_side="top" wrap_title="true" isee:appearance="switch" isee:on_color="#008000"/>
+				<options color="#000000" background="#FFFFFF" appearance="radio-buttons" arrangement="vertical"/>
+				<graphical_input color="#000000" background="#E0E0E0" font_size="12pt" isee:show_hover_tip="true"/>
+				<group_input color="#000000" background="#E0E0E0" font_size="12pt"/>
+				<lamp color="#000000" background="#FFFFFF" font_size="9pt"/>
+				<gauge color="#000000" background="#FFFFFF" font_size="9pt" needle_color="#F09F72" bar_color="#EEEEEE" bar_progress_color="#000000" appearance="radial" num_major_ticks="11" num_minor_ticks="1" show_numeric_value="true"/>
+				<isee:spatial_map color="#000000" background="#FFFFFF" font_size="12pt"/>
+				<isee:animation_object color="#000000" background="#FFFFFF" font_size="12pt"/>
+				<isee:navigation_widget color="#000000" background="#FFFFFF" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="6" appearance="tabs" corner_radius="4" selected_item_color="#000000" selected_item_background="#FFFFFF" item_background="#DDDDDD" transparent_bg="false"/>
+				<isee:shape color="#000000" background="#FFFFFF" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid" opacity="1" transparent_background="true" corner_radius="1"/>
+				<isee:selector color="#000000" background="#FFFFFF" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<isee:iframe color="#000000" background="#FFFFFF" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
+				<isee:financial_table color="#000000" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="#000000" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="#000000" header_text_border_width="thin" header_text_border_style="none"/>
+			</style>
+			<view isee:show_pages="false" background="#FFFFFF" page_width="768" page_height="576" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+				<style color="#000000" background="#FFFFFF" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="#000000" font_family="Arial" font_size="10pt" padding="2" border_color="#000000" border_width="thin" border_style="none">
+					<stock color="#0000FF" background="#FFFFFF" font_color="#0000FF" font_size="9pt" label_side="top">
+						<shape type="rectangle" width="45" height="35"/>
+					</stock>
+					<flow color="#0000FF" background="#FFFFFF" font_color="#0000FF" font_size="9pt" label_side="bottom">
+						<shape type="circle" radius="18"/>
+					</flow>
+					<isee:placeholder color="#228B22" background="#FFFFFF" font_color="#228B22" font_size="9pt" label_side="bottom"/>
+					<module color="#0000FF" background="#FFFFFF" font_color="#0000FF" font_size="9pt" label_side="top">
+						<shape type="rectangle" width="55" height="45"/>
+					</module>
+					<aux color="#0000FF" background="#FFFFFF" font_color="#0000FF" font_size="9pt" label_side="bottom">
+						<shape type="circle" radius="18"/>
+					</aux>
+					<group color="#FF0000" background="#FFFFFF" font_color="#FF0000" font_size="9pt"/>
+					<connector color="#FF007F" background="#FFFFFF" font_color="#FF007F" font_size="9pt" isee:thickness="1"/>
+					<text_box color="#000000" background="#FFFFFF" text_align="left" vertical_text_align="top" font_size="12pt"/>
+					<isee:loop_indicator color="#000000" background="#FFFFFF" vertical_text_align="top" font_size="12pt"/>
+					<numeric_display color="#FFFFFF" background="#FFFFFF" font_size="12pt" border_width="thin" border_style="solid" isee:transparent="false" isee:show_divider="true" isee:show_bounding_box="true" label_side="left"/>
+					<graph color="#000000" background="#FFFFFF" font_size="12pt" axis_color="#666666" grid_color="#C8C8C8" isee:graph_area_color="#FFFFFF" legend_position="bottom" isee:transparent="false" isee:hide_border="false" axis_title_font_style="normal" axis_title_font_weight="normal" axis_title_text_decoration="none" axis_title_text_align="center" axis_title_vertical_text_align="center" axis_title_font_color="#000000" axis_title_font_family="Arial" axis_title_font_size="12pt" axis_title_text_padding="2" axis_title_text_border_color="#000000" axis_title_text_border_width="thin" axis_title_text_border_style="none" axis_label_font_style="normal" axis_label_font_weight="normal" axis_label_text_decoration="none" axis_label_text_align="center" axis_label_vertical_text_align="center" axis_label_font_color="#000000" axis_label_font_family="Arial" axis_label_font_size="9pt" axis_label_text_padding="2" axis_label_text_border_color="#000000" axis_label_text_border_width="thin" axis_label_text_border_style="none">
+						<isee:series_styles>
+							<isee:series_style color="#0000FF" thickness="1"/>
+							<isee:series_style color="#FF0000" thickness="1" pen_style="dot_dashed"/>
+							<isee:series_style color="#FF00FF" thickness="1" pen_style="dotted"/>
+							<isee:series_style color="#008F44" thickness="1" pen_style="dashed"/>
+							<isee:series_style color="#FF7F00" thickness="1"/>
+							<isee:series_style color="#7F00FF" thickness="1" pen_style="dot_dashed"/>
+							<isee:series_style color="#0CA0FF" thickness="1" pen_style="dotted"/>
+							<isee:series_style color="#00FF00" thickness="1" pen_style="dashed"/>
+							<isee:series_style color="#FF007F" thickness="1"/>
+							<isee:series_style color="#00FFFF" thickness="1" pen_style="dot_dashed"/>
+							<isee:series_style color="#F586FF" thickness="1" pen_style="dotted"/>
+							<isee:series_style color="#000000" thickness="1" pen_style="dashed"/>
+							<isee:series_style color="#C8C8C8" thickness="1"/>
+						</isee:series_styles>
+					</graph>
+					<table color="#000000" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="#000000" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="#000000" header_text_border_width="thin" header_text_border_style="none"/>
+				</style>
+				<stock label_side="top" x="198.875" y="50.75" width="87" height="76" name="Deep Reading Capability"/>
+				<flow x="131.125" y="88.75" name="Effortful Reading Practice">
+					<pts>
+						<pt x="63.375" y="88.75"/>
+						<pt x="198.875" y="88.75"/>
+					</pts>
+				</flow>
+				<flow x="342.125" y="86.75" name="Skill Atrophy">
+					<pts>
+						<pt x="285.875" y="86.75"/>
+						<pt x="422.375" y="86.75"/>
+					</pts>
+				</flow>
+				<connector uid="1" angle="31.4641">
+					<from>Deep_Reading_Capability</from>
+					<to>Skill_Atrophy</to>
+				</connector>
+				<stock x="198.375" y="220.25" width="88" height="71" name="AI Assisted Reading Usage"/>
+				<aux x="131.125" y="160.75" width="19" height="19" name="Reflection Effort"/>
+				<connector uid="3" angle="80.5377">
+					<from>Reflection_Effort</from>
+					<to>Effortful_Reading_Practice</to>
+				</connector>
+				<connector uid="4" angle="172.569">
+					<from>AI_Assisted_Reading_Usage</from>
+					<to>Reflection_Effort</to>
+				</connector>
+			</view>
+		</views>
+	</model>
+</xmile>
+
